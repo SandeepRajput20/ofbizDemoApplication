@@ -23,8 +23,18 @@ under the License.
     <description>DemoApplicationOfbiz Services</description>
     <vendor></vendor>
     <version>1.0</version>
-    <service name="createDemoApplicationOfbiz" default-entity-name="DemoApplicationOfbiz" engine="entity-auto" invoke="create" auth="true">
+    <service name="createDemoApplicationOfbiz" default-entity-name="DemoApplicationOfbiz" engine="entity-auto"
+             invoke="create" auth="true">
         <description>Create an Ofbiz Demo record</description>
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="false"/>
+        <override name="comments" optional="true"/>
+    </service>
+
+
+    <service name="createDemoApplicationOfbizByGroovyService" default-entity-name="DemoApplicationOfbiz" engine="groovy"
+             location="component://DemoApplicationOfbiz/groovyScripts/com/demo/DemoApplicationOfbiz/DemoApplicationOfbizServices.groovy" invoke="createDemoApplicationOfbiz" auth="true">
+        <description>Create an Ofbiz Demo record using a service in Groovy</description>
         <auto-attributes include="pk" mode="OUT" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="false"/>
         <override name="comments" optional="true"/>

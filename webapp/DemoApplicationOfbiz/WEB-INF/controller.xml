@@ -54,12 +54,26 @@ under the License.
         <security https="true" auth="true"/>
         <response name="success" type="view" value="FindDemoApplicationOfbiz"/>
     </request-map>
+    <request-map uri="createDemoApplicationOfbizEvent">
+        <security https="true" auth="true"/>
+        <event type="java" path="com.demo.DemoApplicationOfbiz.events.DemoApplicationOfbizEvents"
+               invoke="createDemoApplicationOfbizEvent"/>
+        <response name="success" type="view" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+    <request-map uri="AddDemoApplicationOfbizFtl">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="AddDemoApplicationOfbizFtl"/>
+    </request-map>
 
 
     <!-- View Mappings -->
     <view-map name="main" type="screen"
               page="component://DemoApplicationOfbiz/widget/DemoApplicationOfbizScreens.xml#main"/>
+    <view-map name="FindDemoApplicationOfbiz" type="screen"
+              page="component://DemoApplicationOfbiz/widget/DemoApplicationOfbizScreens.xml#FindDemoApplicationOfbiz"/>
 
-    <view-map name="FindDemoApplicationOfbiz" type="screen" page="component://DemoApplicationOfbiz/widget/DemoApplicationOfbizScreens.xml#FindDemoApplicationOfbiz"/>
-    
+    <view-map name="AddDemoApplicationOfbizFtl" type="screen"
+              page="component://DemoApplicationOfbiz/widget/DemoApplicationOfbizScreens.xml#AddDemoApplicationOfbizFtl"/>
+
 </site-conf>
